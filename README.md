@@ -16,9 +16,8 @@ python RTV.py --image demo_images/crossstitch.jpg --save_path demo_outputs/cross
 Input image, Original Paper Result, Reimplementation Result
 <img width="1894" height="749" alt="demo" src="https://github.com/user-attachments/assets/e248d877-4295-4550-b70a-cf8a2731bbde" />
 
-More results:
-
-<img width="400" height="433" alt="mosaicfloor" src="https://github.com/user-attachments/assets/9191b149-f3c9-421d-a689-ff0a770fe981" /> <img width="400" height="433" alt="mosaicfloor" src="https://github.com/user-attachments/assets/57b9494c-7f81-4837-8aa9-ccb366cdd6c9" />
-
-<img width="400" height="300" alt="graffiti" src="https://github.com/user-attachments/assets/f88cf420-c3e5-4a46-ad95-139671c2458e" /> <img width="400" height="300" alt="graffiti" src="https://github.com/user-attachments/assets/eef163d6-d1e7-4cb1-aea7-0e526c4a47ba" />
+| Input | Output |
+|-------|--------|
+| <img width="400" alt="mosaicfloor_in" src="https://github.com/user-attachments/assets/9191b149-f3c9-421d-a689-ff0a770fe981" /> | <img width="400" alt="mosaicfloor_out" src="https://github.com/user-attachments/assets/57b9494c-7f81-4837-8aa9-ccb366cdd6c9" /> |
+| <img width="400" alt="graffiti_in" src="https://github.com/user-attachments/assets/f88cf420-c3e5-4a46-ad95-139671c2458e" /> | <img width="400" alt="graffiti_out" src="https://github.com/user-attachments/assets/eef163d6-d1e7-4cb1-aea7-0e526c4a47ba" /> |
 
