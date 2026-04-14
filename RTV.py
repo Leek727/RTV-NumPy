@@ -4,7 +4,7 @@ from scipy.sparse.linalg import cg
 from scipy.sparse.linalg import LinearOperator
 
 class RTV:
-    def __init__(self, left, lambda_S=0.01, sigma=3, sigma_annealing_end=1.5):
+    def __init__(self, left, lambda_S=0.01, sigma=3, sigma_annealing_end=0.6):
         self.left = left.astype(np.float32)
         self.lambda_S = lambda_S
         self.sigma = sigma
@@ -16,7 +16,6 @@ class RTV:
     def apply_Lis(self, x, Ux, Vx, Uy, Vy):
         """
         Given a HxW matrix x, HxW matricies Ux, Vx, Uy, Vy, returns L_Is x (a HxW matrix)
-        See Sharma et al. Eqn 16
         """
         x = x.astype(np.float32)
         dx = np.diff(x, axis=1, append=0)
@@ -34,7 +33,7 @@ class RTV:
         """
         Given structure image Is, computes Ux, Vx, Uy, Vy and returns as
         HW vectors
-        See Sharma et al. Eqn 16 or RTV Xu et al. Eqn 8 and 9
+        Eqn 8 and 9
         """
         Is = Is.astype(np.float32)
         H, W, C = Is.shape
@@ -103,12 +102,12 @@ if __name__ == "__main__":
     parser.add_argument("--image", type=str, default="bicycle.png")
     parser.add_argument("--lambda_S", type=float, default=0.01)
     parser.add_argument("--sigma", type=float, default=3)
-    parser.add_argument("--sigma_annealing", type=float, default=0.6)
+    parser.add_argument("--sigma_annealing_end", type=float, default=0.6)
     parser.add_argument("--save_path", type=str, default="out.png")
     args = parser.parse_args()
     
     left = cv2.imread(args.image)
-    JSS = RTV(left, args.lambda_S, args.sigma, args.sigma_annealing)
+    rtv = RTV(left, args.lambda_S, args.sigma, args.sigma_annealing_end)
 
-    s = JSS.solve_system()
+    s = rtv.solve_system()
     cv2.imwrite(args.save_path, s)
